@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "1033120432288",
+    "project_id": "eventease-571b4",
+    "storage_bucket": "eventease-571b4.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1033120432288:android:64b53863cd0f27154209c5",
+        "android_client_info": {
+          "package_name": "com.example.eventease"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1033120432288-mn8o7o1m6loritpvv5afk55gokun69vg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.eventease",
+            "certificate_hash": "ed72ee59753547bcc7599deb568d3321f816227a"
+          }
+        },
+        {
+          "client_id": "1033120432288-5bjpklk4lcp6t9dd1at4m6sgbrmd4m3l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcMN5vc87JjSQfVQGwRs58Bz9q8tIrj6k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1033120432288-5bjpklk4lcp6t9dd1at4m6sgbrmd4m3l.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1033120432288-ptec1tsvfeg227uh344jnakm3q30v0uo.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.eventease"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
