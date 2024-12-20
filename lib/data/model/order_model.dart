@@ -2,6 +2,7 @@
 
 class OrderModel {
   final String adress;
+  final String phone;
   String id;
   final DateTime orderdate;
 
@@ -14,6 +15,7 @@ class OrderModel {
     required this.adress,
     required this.orderdate,
     required this.total,
+    required this.phone,
 
     required this.status,
 
@@ -28,6 +30,7 @@ class OrderModel {
       total: (json["total"] ?? 0.0).toDouble(),
       productlist: json['orderItems'] ?? {},
       id: json["id"] ?? "",
+      phone: json["phone"] ?? "",
       status: json["status"] ?? "En cours",
     );
   }
@@ -39,6 +42,7 @@ class OrderModel {
       'date': orderdate,
 
       'total': total,
+      'phone': phone,
 
       'id': id,
       'status': status,

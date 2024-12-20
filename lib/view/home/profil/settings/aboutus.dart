@@ -28,7 +28,7 @@ class AboutUs extends StatelessWidget {
             AppImageAsset.aboutus,
           ),
           Text(
-            "about usopjpoazjfpjôzegpozejdgkoap^dâpo^l^fdl^pead^pakf^paezkf^zeakfêzg",
+            "EventEase is your go-to mobile app designed to simplify event planning and management. Whether you’re organizing a wedding, corporate event, or any special occasion, we provide a seamless platform to help you rent, organize, and manage your event needs with ease.Our mission is to make event planning stress-free by offering a wide range of services, from venue rentals to equipment, all available at your fingertips. With EventEase, you can browse, book, and coordinate every aspect of your event, ensuring a memorable experience.We are passionate about delivering innovation, quality, and service, offering tailored solutions to fit every event. Let us help you create unforgettable moments!",
             style: GoogleFonts.mulish(
               fontSize: 18.0,
               color: AppColor.secondcolor,

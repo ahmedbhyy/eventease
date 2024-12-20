@@ -17,7 +17,7 @@ class LanguageScreen extends StatelessWidget {
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(kToolbarHeight),
         child: CommonAppBar(
-          title: "Language",
+          title: "3".tr,
           onPressed: () {
             Get.back();
           },
@@ -27,7 +27,7 @@ class LanguageScreen extends StatelessWidget {
         builder: (controller) => ListView(
           padding: const EdgeInsets.all(10),
           children: [
-             Image.asset(AppImageAsset.language),
+            Image.asset(AppImageAsset.language),
             ...List.generate(
               controller.languages.length,
               (index) => SizedBox(
@@ -40,9 +40,9 @@ class LanguageScreen extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: InkWell(
                       onTap: () {
-                        controller.updateColor(index);
                         controllerlang
                             .changelang(controller.languagesid[index]);
+                        controller.updateColor(index);
                       },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,

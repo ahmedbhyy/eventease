@@ -12,7 +12,10 @@ abstract class HomeController extends GetxController {
 }
 
 class HomeControllerImp extends HomeController {
-  List<String> list = <String>['One', 'Two', 'Three', 'Four'];
+  List<String> list = <String>[
+    'All',
+    'Discount',
+  ];
   late String dropdownvalue;
   String selectedcategorie = "All";
   final userId = FirebaseAuth.instance.currentUser?.uid;
@@ -132,6 +135,18 @@ class HomeControllerImp extends HomeController {
       return category;
     }
   }
+
+  List havediscount() {
+    if (dropdownvalue == "All") {
+      return changecategorie(selectedcategorie).products;
+    } else {
+      return changecategorie(selectedcategorie)
+          .products
+          .where((element) => element.remise != 0)
+          .toList(); 
+    }
+  }
+
 
   CategoryModel getCategoryForProduct(ProductModel product) {
     return categories.firstWhere(

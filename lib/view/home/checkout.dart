@@ -5,9 +5,11 @@ import 'package:eventease/view/auth/authwidgets/button_auth.dart';
 import 'package:eventease/view/auth/authwidgets/textfieldauth.dart';
 import 'package:eventease/view/commonwidgets/common_appbar.dart';
 import 'package:eventease/view/commonwidgets/commonloading.dart';
+import 'package:eventease/view/home/cart.dart';
 import 'package:eventease/view/home/paywithcard.dart';
 import 'package:eventease/view/slides/slide_right.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_paypal_payment/flutter_paypal_payment.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -101,22 +103,108 @@ class CheckOut extends StatelessWidget {
             const SizedBox(
               height: 50.0,
             ),
-            ButtonAuth(
-              mytitle: "Pay with card",
-              myfunction: () {
-                if (controller.formState.currentState!.validate()) {
-                  Navigator.of(context).push(
-                    SlideRight(
-                      page: PayWithCard(
-                        total: total,
-                        adress: controller.controller2!.text,
-                        name: controller.controller2!.text,
-                        phone: controller.controller3!.text,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                  width: 200.0,
+                  child: ButtonAuth(
+                    mytitle: "Pay with card",
+                    myfunction: () {
+                      if (controller.formState.currentState!.validate()) {
+                        Navigator.of(context).push(
+                          SlideRight(
+                            page: PayWithCard(
+                              total: total,
+                              adress: controller.controller2!.text,
+                              name: controller.controller2!.text,
+                              phone: controller.controller3!.text,
+                            ),
+                          ),
+                        );
+                      }
+                    },
+                  ),
+                ),
+                TextButton.icon(
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                      builder: (BuildContext context) => PaypalCheckoutView(
+                        sandboxMode: true,
+                        clientId:
+                            "AQ4Ha5CUSrPsQSowfFEO7R0cWMptqhzbUMzNmsE6GmzFOTCVQWeOcDzyaRd1U20FPN2E-zW4lQaSKkp_",
+                        secretKey:
+                            "EEAPTxGspvouXD7saRhoI2PfN9vt83SPSRt24eua2gw17M4NgmA158akPgevhqTgeDLRBQm8BuNFIUML",
+                        transactions: const [
+                          {
+                            "amount": {
+                              "total": "70",
+                              "currency": "USD",
+                              "details": {
+                                "subtotal": "70",
+                                "shipping": '0',
+                                "shipping_discount": 0
+                              }
+                            },
+                            "description":
+                                "The payment transaction description.",
+                            // "payment_options": {
+                            //   "allowed_payment_method":
+                            //       "INSTANT_FUNDING_SOURCE"
+                            // },
+                            "item_list": {
+                              "items": [
+                                {
+                                  "name": "Apple",
+                                  "quantity": 4,
+                                  "price": '5',
+                                  "currency": "USD"
+                                },
+                                {
+                                  "name": "Pineapple",
+                                  "quantity": 5,
+                                  "price": '10',
+                                  "currency": "USD"
+                                }
+                              ],
+
+                              // shipping address is not required though
+                              //   "shipping_address": {
+                              //     "recipient_name": "tharwat",
+                              //     "line1": "Alexandria",
+                              //     "line2": "",
+                              //     "city": "Alexandria",
+                              //     "country_code": "EG",
+                              //     "postal_code": "21505",
+                              //     "phone": "+00000000",
+                              //     "state": "Alexandria"
+                              //  },
+                            }
+                          }
+                        ],
+                        note: "Contact us for any questions on your order.",
+                        onSuccess: (Map params) async {
+                          Get.off(
+                            () => const CartScreen(),
+                          );
+                        },
+                        onError: (error) {
+                          Navigator.pop(context);
+                        },
+                        onCancel: () {
+                          return;
+                        },
                       ),
-                    ),
-                  );
-                }
-              },
+                    ));
+                  },
+                  label: const Text("Or"),
+                  iconAlignment: IconAlignment.end,
+                  icon: Image.asset(
+                    AppImageAsset.paypal,
+                    height: 30.0,
+                  ),
+                )
+              ],
             ),
             Center(
               child: Padding(

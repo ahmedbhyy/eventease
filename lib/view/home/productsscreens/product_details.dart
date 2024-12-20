@@ -240,7 +240,7 @@ class ProductDetails extends StatelessWidget {
                               height: 25.0,
                             ),
                             Text(
-                              "ezrtrazegerh",
+                              "CANAPÉ STYLE PRO / STRUCTURE EN BOIS ROUGE REMBOURÉE EN SIMILICUIR COULEUR TAUPE / AVEC ACCOUDOIRS",
                               overflow: TextOverflow.ellipsis,
                               maxLines: 3,
                               style: GoogleFonts.mulish(

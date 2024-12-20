@@ -23,15 +23,13 @@ class StartControllerImp extends StartController {
     const HomeScreen(),
     const FavoritesScreen(),
     const CartScreen(),
-     const ProfilScreen(),
+    const ProfilScreen(),
   ];
 
   RxList<Map<String, dynamic>> cartItems = <Map<String, dynamic>>[].obs;
   StartControllerImp() {
     listenToCart();
   }
-
-
 
   @override
   generatewindow(int i) {
@@ -63,15 +61,17 @@ class StartControllerImp extends StartController {
 
   @override
   void onInit() async {
-    
     FirebaseMessaging.instance.subscribeToTopic('eventease');
     FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
-      Get.to( NotificationsScreen());
+      Get.to(NotificationsScreen());
     });
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
       if (message.notification != null) {
         Get.snackbar(
-            "${message.notification!.title}", "${message.notification!.body}");
+            colorText: Colors.black,
+            "${message.notification!.title}",
+            "${message.notification!.body}",
+            duration: const Duration(seconds: 6));
       }
     });
     gettoken();
@@ -92,6 +92,4 @@ class StartControllerImp extends StartController {
       value: token,
     );
   }
-
-  
 }

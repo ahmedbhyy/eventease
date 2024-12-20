@@ -33,7 +33,7 @@ class HomeScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "Discover products",
+                    "2".tr,
                     style: GoogleFonts.mulish(
                       fontSize: 22.0,
                       fontWeight: FontWeight.bold,
@@ -103,7 +103,7 @@ class HomeScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "${controller.changecategorie(controller.selectedcategorie).products.length.toString()} Items",
+                    "${controller.havediscount().length.toString()} Items",
                     style: GoogleFonts.mulish(
                       fontSize: 15.0,
                       fontWeight: FontWeight.bold,
@@ -162,10 +162,7 @@ class HomeScreen extends StatelessWidget {
                               ),
                               shrinkWrap: true,
                               physics: const NeverScrollableScrollPhysics(),
-                              itemCount: controller
-                                  .changecategorie(controller.selectedcategorie)
-                                  .products
-                                  .length,
+                              itemCount: controller.havediscount().length,
                               itemBuilder: (context, index) => InkWell(
                                 onTap: () {
                                   Navigator.of(context).push(
@@ -202,9 +199,7 @@ class HomeScreen extends StatelessWidget {
                                         children: [
                                           CachedImageWidget(
                                             image: controller
-                                                .changecategorie(controller
-                                                    .selectedcategorie)
-                                                .products[index]
+                                                .havediscount()[index]
                                                 .image,
                                             borderradius: 15,
                                             height: 160.0,
@@ -214,9 +209,7 @@ class HomeScreen extends StatelessWidget {
                                           ),
                                           Text(
                                             controller
-                                                .changecategorie(controller
-                                                    .selectedcategorie)
-                                                .products[index]
+                                                .havediscount()[index]
                                                 .name,
                                             style: GoogleFonts.mulish(
                                               fontSize: 16.0,
@@ -229,10 +222,9 @@ class HomeScreen extends StatelessWidget {
                                           ),
                                           Text(
                                             controller
-                                                .getCategoryForProduct(controller
-                                                    .changecategorie(controller
-                                                        .selectedcategorie)
-                                                    .products[index])
+                                                .getCategoryForProduct(
+                                                    controller
+                                                        .havediscount()[index])
                                                 .name,
                                             style: GoogleFonts.mulish(
                                               fontSize: 16.0,
@@ -247,14 +239,11 @@ class HomeScreen extends StatelessWidget {
                                                 MainAxisAlignment.center,
                                             children: [
                                               controller
-                                                          .changecategorie(
-                                                              controller
-                                                                  .selectedcategorie)
-                                                          .products[index]
+                                                          .havediscount()[index]
                                                           .remise !=
                                                       0.0
                                                   ? Text(
-                                                      "${controller.changecategorie(controller.selectedcategorie).products[index].remise + controller.changecategorie(controller.selectedcategorie).products[index].prix} TND",
+                                                      "${controller.havediscount()[index].remise + controller.havediscount()[index].prix} TND",
                                                       style: GoogleFonts.mulish(
                                                         fontSize: 14.0,
                                                         decorationColor:
@@ -272,7 +261,7 @@ class HomeScreen extends StatelessWidget {
                                                 width: 5.0,
                                               ),
                                               Text(
-                                                "${controller.changecategorie(controller.selectedcategorie).products[index].prix} TND",
+                                                "${controller.havediscount()[index].prix} TND",
                                                 style: GoogleFonts.mulish(
                                                   fontSize: 14.0,
                                                   color:
@@ -295,14 +284,11 @@ class HomeScreen extends StatelessWidget {
                                             onPressed: () {
                                               controller.toggleFavorite(
                                                   controller
-                                                      .changecategorie(controller
-                                                          .selectedcategorie)
-                                                      .products[index]);
+                                                      .havediscount()[index]);
                                             },
-                                            icon: controller.isFavorite(controller
-                                                    .changecategorie(controller
-                                                        .selectedcategorie)
-                                                    .products[index])
+                                            icon: controller.isFavorite(
+                                                    controller
+                                                        .havediscount()[index])
                                                 ? const Icon(
                                                     LineIcons.heartAlt,
                                                     color: AppColor.redcolor,

@@ -59,6 +59,9 @@ dependencies:
   easy_date_timeline: ^2.0.4
   icons_launcher: ^3.0.0
   flutter_credit_card: ^4.0.1
+  flutter_paypal_payment: ^1.0.8
+  flutter_map: ^7.0.2
+  latlong2: ^0.9.1
 
 dev_dependencies:
   flutter_test:

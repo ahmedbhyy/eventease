@@ -6,10 +6,10 @@ abstract class LanguageController extends GetxController {
 
 class LanguageControllerImp extends LanguageController {
   List<String> languages = [
-    "English",
-    "French",
+    "4".tr,
+    "5".tr,
   ];
-    List<String> languagesid = [
+  List<String> languagesid = [
     "en",
     "fr",
   ];

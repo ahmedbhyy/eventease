@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:eventease/core/constant/color.dart';
+import 'package:eventease/core/constant/imageasset.dart';
 import 'package:eventease/view/commonwidgets/common_appbar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -223,6 +224,8 @@ class MessageStreamBuilder extends StatelessWidget {
               strokeWidth: 2.0,
             ),
           );
+        } else if (snapshot.data!.docs.isEmpty) {
+          return Image.asset(AppImageAsset.contact);
         }
 
         final messages = snapshot.data!.docs.reversed;

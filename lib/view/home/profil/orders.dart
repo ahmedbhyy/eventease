@@ -3,6 +3,8 @@ import 'package:eventease/controller/profil/orders_controller.dart';
 import 'package:eventease/core/constant/color.dart';
 import 'package:eventease/view/commonwidgets/common_appbar.dart';
 import 'package:eventease/view/commonwidgets/commonloading.dart';
+import 'package:eventease/view/home/profil/order_details.dart';
+import 'package:eventease/view/slides/slide_right.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -122,6 +124,15 @@ class OrdersScreen extends StatelessWidget {
                                           AppImageAsset.order,
                                           width: 60.0,
                                         ),
+                                        onTap: () {
+                                          Navigator.of(context).push(
+                                            SlideRight(
+                                              page: OrderDetails(
+                                                myorder: order,
+                                              ),
+                                            ),
+                                          );
+                                        },
                                         trailing: const Icon(
                                           LineIcons.arrowCircleRight,
                                         ),

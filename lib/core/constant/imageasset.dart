@@ -9,6 +9,7 @@ class AppImageAsset {
   static const String orders = "$rootImages/orders.png";
   static const String order = "$rootImages/order.png";
   static const String language = "$rootImages/language.png";
+  static const String paypal = "$rootImages/paypal.png";
   static const String facebook = "$rootImages/facebook.png";
   static const String checkout = "$rootImages/checkout.png";
   static const String password = "$rootImages/password.png";
